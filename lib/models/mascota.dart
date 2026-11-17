@@ -29,8 +29,7 @@ class Mascota {
   bool get disponible => _disponible;
 
   set id(int valor) {
-    if (valor > 0)
-      _id = valor;
+    if (valor > 0){      _id = valor;}
   }
   set nombre(String valor) {
     if (valor.isNotEmpty)
