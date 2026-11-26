@@ -7,6 +7,7 @@ class Mascota {
   int _edad;
   double _precio;
   bool _disponible;
+  String?_observaciones;
 
   Mascota(
     this._id,
@@ -14,10 +15,11 @@ class Mascota {
     this._especie,
     this._edad,
     this._precio,
-    this._disponible
+    this._disponible,
+    this._observaciones,
   );
 
-  Mascota.vacia(): _id=0, _nombre="", _especie="", _edad=0, _precio=0.0, _disponible=false;
+  Mascota.vacia(): _id=0, _nombre="", _especie="", _edad=0, _precio=0.0, _disponible=false, _observaciones=null;
 
 
 
@@ -27,6 +29,7 @@ class Mascota {
   int get edad => _edad;
   double get precio => _precio;
   bool get disponible => _disponible;
+  String? get observaciones => _observaciones;
 
   set id(int valor) {
     if (valor > 0){      _id = valor;}
@@ -53,15 +56,21 @@ class Mascota {
   set disponible(bool valor) {
     _disponible = valor;
   }
+  set observaciones(String? valor) {
+    _observaciones = valor;
+  }
     void mostrarInformacion(){
+      
       print(
-        '$nombre ($especie) - $edad años - $precio €'
+        '$nombre ($especie) - $edad años - $precio € $observaciones ?? "Sin observaciones"'
       );
     }
     @override
     String toString(){
       return '$nombre ($especie)';
     }
+
+
 
 
 }

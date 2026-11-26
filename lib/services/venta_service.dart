@@ -1,4 +1,4 @@
-import 'package:petshop/models/mascota.dart';
+
 
 class VentaService {
   double calcularDescuento(double precio, {double porcentaje = 0.1}) {
