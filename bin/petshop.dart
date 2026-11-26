@@ -2,12 +2,14 @@ import 'package:petshop/database/supabase_client.dart';
 import 'package:petshop/extensions/precio_extension.dart';
 import 'package:petshop/models/animal.dart';
 import 'package:petshop/models/ave.dart';
+import 'package:petshop/models/caja.dart';
 import 'package:petshop/models/gato.dart';
 import 'package:petshop/models/mascota.dart';
 import 'package:petshop/models/cliente.dart';
 import 'package:petshop/models/pedido.dart';
 import 'package:petshop/models/perro.dart';
 import 'package:petshop/models/pez.dart';
+import 'package:petshop/repositories/repository.dart';
 import 'package:petshop/services/venta_service.dart';
 
 void main() async {
@@ -113,6 +115,18 @@ print(DateTime.now().formatoSimple());
 print(mascota1.esCara());
 
 print(mascota2.precio.aplicarDescuento(10));
+
+var caja1 = Caja<int>(1);
+var caja2 = Caja<String>("Fermin");
+
+print(caja2.obtener());
+
+final mascotaRepository= Repository<Mascota>();
+var mascota6=Mascota(6, "Blue", "Medusa", 2, 3000.9, true, null);
+mascotaRepository.add(mascota6);
+
+print(mascotaRepository.getAll().toString());
+
 
   // var calculo1= calcularIVA(100.0);
   // print(calculo1);
